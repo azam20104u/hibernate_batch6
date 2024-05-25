@@ -8,20 +8,27 @@ public class One2One {
         Session session = SessionGet.getSession();
         Transaction beginTransaction = session.beginTransaction();
 
-        // CountryDTO country = new CountryDTO();
-        // country.setCname("India");
+        CountryDTO country = new CountryDTO();
+        country.setCname("India");
 
-        // PMDTO pmd = new PMDTO();
-        // pmd.setPname("Modi");
+        PMDTO pmd = new PMDTO();
+        pmd.setPname("Modi");
 
-        // country.setPmdto(pmd);
+        country.setPmdto(pmd);
 
-        // session.persist(country);
+        session.persist(country);
 
-        CountryDTO countryDTO = session.get(CountryDTO.class, 1);
-        PMDTO pmdto = countryDTO.getPmdto();
-        System.out.println(countryDTO);
-        System.out.println(pmdto);
+        // CountryDTO countryDTO = session.get(CountryDTO.class, 1);
+        // PMDTO pmdto = countryDTO.getPmdto();
+        // System.out.println(countryDTO);
+        // System.out.println(pmdto);
+        // CountryDTO countryDTO = session.get(CountryDTO.class, 1);
+        // session.remove(countryDTO);
+
+        // CountryDTO countryDTO = session.get(CountryDTO.class, 1);
+        // countryDTO.setCname("USA");
+        // countryDTO.getPmdto().setPname("Baidan");
+        // session.persist(countryDTO);
         beginTransaction.commit();
         System.out.println(" Country and PM has been persisted");
         session.close();

@@ -1,5 +1,7 @@
 package com.azamda.hibernate;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +17,9 @@ import lombok.ToString;
 public class CountryDTO {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    // @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GenericGenerator(name="auto",strategy = "increment")
+    @GeneratedValue(generator="auto")
     private Integer cid;
     private String cname;
 
